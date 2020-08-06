@@ -1,6 +1,5 @@
 package com.zzw.facedemo.service.impl;
 
-import com.itboyst.facedemo.mapper.MybatisUserFaceInfoMapper;
 import com.zzw.facedemo.domain.UserFaceInfo;
 import com.zzw.facedemo.mapper.UserFaceInfoMapper;
 import com.zzw.facedemo.service.UserFaceInfoService;

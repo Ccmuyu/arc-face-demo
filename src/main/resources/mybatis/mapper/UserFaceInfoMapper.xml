@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzw.facedemo.mapper.UserFaceInfoMapper">
+    <resultMap id="BaseResultMap" type="com.zzw.facedemo.domain.UserFaceInfo">
+        <!--@mbg.generated-->
+        <!--@Table user_face_info-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="group_id" jdbcType="INTEGER" property="groupId"/>
+        <result column="face_id" jdbcType="VARCHAR" property="faceId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="gender" jdbcType="SMALLINT" property="gender"/>
+        <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber"/>
+        <result column="face_feature" jdbcType="BLOB" property="faceFeature"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="fpath" jdbcType="VARCHAR" property="fpath"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, group_id, face_id, `name`, age, email, gender, phone_number, face_feature, create_time,
+        update_time, fpath
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from user_face_info
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete
+        from user_face_info
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzw.facedemo.domain.UserFaceInfo"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into user_face_info (group_id, face_id, `name`,
+                                    age, email, gender,
+                                    phone_number, face_feature, create_time,
+                                    update_time, fpath)
+        values (#{groupId,jdbcType=INTEGER}, #{faceId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+                #{age,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{gender,jdbcType=SMALLINT},
+                #{phoneNumber,jdbcType=VARCHAR}, #{faceFeature,jdbcType=BLOB}, #{createTime,jdbcType=TIMESTAMP},
+                #{updateTime,jdbcType=TIMESTAMP}, #{fpath,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.zzw.facedemo.domain.UserFaceInfo" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into user_face_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="groupId != null">
+                group_id,
+            </if>
+            <if test="faceId != null">
+                face_id,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="age != null">
+                age,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="phoneNumber != null">
+                phone_number,
+            </if>
+            <if test="faceFeature != null">
+                face_feature,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="fpath != null">
+                fpath,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="groupId != null">
+                #{groupId,jdbcType=INTEGER},
+            </if>
+            <if test="faceId != null">
+                #{faceId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                #{age,jdbcType=INTEGER},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=SMALLINT},
+            </if>
+            <if test="phoneNumber != null">
+                #{phoneNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="faceFeature != null">
+                #{faceFeature,jdbcType=BLOB},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="fpath != null">
+                #{fpath,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zzw.facedemo.domain.UserFaceInfo">
+        <!--@mbg.generated-->
+        update user_face_info
+        <set>
+            <if test="groupId != null">
+                group_id = #{groupId,jdbcType=INTEGER},
+            </if>
+            <if test="faceId != null">
+                face_id = #{faceId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                age = #{age,jdbcType=INTEGER},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                gender = #{gender,jdbcType=SMALLINT},
+            </if>
+            <if test="phoneNumber != null">
+                phone_number = #{phoneNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="faceFeature != null">
+                face_feature = #{faceFeature,jdbcType=BLOB},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="fpath != null">
+                fpath = #{fpath,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zzw.facedemo.domain.UserFaceInfo">
+        <!--@mbg.generated-->
+        update user_face_info
+        set group_id     = #{groupId,jdbcType=INTEGER},
+            face_id      = #{faceId,jdbcType=VARCHAR},
+            `name`       = #{name,jdbcType=VARCHAR},
+            age          = #{age,jdbcType=INTEGER},
+            email        = #{email,jdbcType=VARCHAR},
+            gender       = #{gender,jdbcType=SMALLINT},
+            phone_number = #{phoneNumber,jdbcType=VARCHAR},
+            face_feature = #{faceFeature,jdbcType=BLOB},
+            create_time  = #{createTime,jdbcType=TIMESTAMP},
+            update_time  = #{updateTime,jdbcType=TIMESTAMP},
+            fpath        = #{fpath,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="findUserFaceInfoList" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from user_face_info
+    </select>
+
+    <select id="findByGroupId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user_face_info
+        where group_id = #{groupId,jdbcType=INTEGER}
+    </select>
+</mapper>
